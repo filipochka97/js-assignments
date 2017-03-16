@@ -54,13 +54,8 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-    var array = [null];
-     var js = JSON.parse(json);
-     for (let key in js) {
-         array.push(js[key]);
-     }
-     
-     return new (Function.bind.apply(proto.constructor, array));
+return Object.assign(Object.create(proto), JSON.parse(json));
+
 }
 
 
