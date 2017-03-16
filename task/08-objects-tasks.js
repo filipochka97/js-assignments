@@ -54,7 +54,13 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-    throw new Error('Not implemented');
+    var array = [null];
+     var js = JSON.parse(json);
+     for (let key in js) {
+         array.push(js[key]);
+     }
+     
+     return new (Function.bind.apply(proto.constructor, array));
 }
 
 
